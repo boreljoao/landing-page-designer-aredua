@@ -1,0 +1,941 @@
+/* Global Styles */
+body {
+    font-family: 'Times New Roman', Times, serif; /* Placeholder, will need to find closer matches or use web fonts */
+    margin: 0;
+    padding: 0;
+    background-color: #fdfaf6; /* Light beige background */
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scrollbar from animation */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    background-color: #f7b5cd; /* Pink button */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f498b9;
+}
+/* Adicione isso ao seu CSS existente */
+
+/* Hamburger Menu Styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #555;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fdfaf6;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+    font-size: 1.5em;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+    color: #f7b5cd;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 992px) {
+    nav ul {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .nav-logo {
+        margin: 0;
+    }
+    
+    nav {
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+}
+/* Header */
+header {
+    padding: 20px 5%;
+    background-color: #fdfaf6; /* Same as body or slightly different if needed */
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.designed-by {
+    font-size: 0.9em;
+    color: #777;
+    display: block;
+}
+.designed-by a{
+    color: #f1bb8e;
+}
+.site-title {
+    font-family: 'Playfair Display', serif; /* Example serif font */
+    font-size: 2.8em;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid #ddd; /* Increased thickness */
+    border-bottom: 3px solid #ddd; /* Increased thickness */
+    padding: 15px 0;
+}
+
+.nav-logo {
+    font-family: 'Dancing Script', cursive; /* Example script font for 'Studio ASTER' */
+    font-size: 2.5em;
+    color: #d4af37; /* Gold-ish color, adjust as needed */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    font-size: 0.95em;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f7b5cd;
+}
+
+/* Main content separation */
+main {
+    border-top: 3px solid #ccc; /* Added thicker line separating header/nav from main */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 40px 5%;
+    gap: 40px;
+    background-color: #fff; /* White background for this section */
+    border-bottom: 3px solid #ddd; /* Increased thickness */
+}
+
+.hero-image-container {
+    flex-basis: 40%;
+    border: 10px solid #fff; /* White border around image */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.hero-text-container {
+    flex-basis: 60%;
+}
+
+.tagline {
+    font-family: 'Dancing Script', cursive; /* Script font for 'Hey You!' */
+    color: #f7b5cd;
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #f7b5cd;
+    border-radius: 15px;
+    transform: rotate(-5deg);
+    margin-bottom: 15px;
+}
+
+.hero-text-container h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.hero-text-container .highlight-text {
+    font-family: 'Dancing Script', cursive;
+    color: #f7b5cd;
+    font-style: italic;
+}
+
+.hero-text-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Now Booking Banner */
+.now-booking-banner {
+    background-color: #f7b5cd; /* Pink background */
+    color: #000; /* Black text */
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 3px solid #e6a5c0; /* Increased thickness, kept color consistent with banner */
+    border-bottom: 3px solid #e6a5c0; /* Increased thickness, kept color consistent with banner */
+}
+
+.scrolling-text {
+    display: inline-block;
+    animation: scroll-left 30s linear infinite;
+}
+
+.scrolling-text span {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-right: 30px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.scrolling-text .dot {
+    font-size: 0.8em;
+    color: #000; /* Black dot */
+    margin: 0 10px;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%); /* Adjust based on content width to ensure seamless loop */
+    }
+}
+
+/* Business Goals Section */
+.business-goals {
+    display: flex;
+    align-items: center;
+    padding: 60px 5%;
+    gap: 40px;
+    background-color: #fdfaf6;
+    border-top: 3px solid #ddd; /* Added border for separation */
+    border-bottom: 3px solid #ddd; /* Added border for separation */
+}
+
+.business-goals-text {
+    flex-basis: 55%;
+    position: relative;
+}
+
+.business-goals-text::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(247, 181, 205, 0.2); /* Faint pink glow */
+    border-radius: 50%;
+    top: 20%;
+    right: 10%;
+    filter: blur(50px);
+    z-index: 0;
+}
+
+.business-goals-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: #000;
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-text-goals {
+    font-family: 'Dancing Script', cursive;
+    color: #f7b5cd;
+    font-style: italic;
+}
+
+.business-goals-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.link-help {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.link-help:hover {
+    color: #f7b5cd;
+}
+
+.business-goals-image {
+    flex-basis: 45%;
+}
+
+/* Services Section */
+.services-section {
+    display: flex;
+    padding: 60px 5%;
+    gap: 40px;
+    background-color: #fff; /* White background */
+    border-top: 3px solid #ddd; /* Increased thickness */
+    border-bottom: 3px solid #ddd; /* Increased thickness */
+}
+
+.services-image-container {
+    flex-basis: 45%;
+}
+
+.services-list {
+    flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.service-item {
+    border-bottom: 2px solid #eee; /* Slightly thicker for internal division */
+    padding-bottom: 30px;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.service-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.service-item p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.btn-service {
+    background-color: #f7b5cd;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-service:hover {
+    background-color: #f498b9;
+}
+
+/* Featured On Banner */
+.featured-on-banner {
+    background-color: #f7b5cd;
+    color: #000;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Arial', sans-serif; /* More standard font for logos */
+    font-weight: bold;
+    font-size: 1.3em;
+    border-top: 3px solid #e6a5c0; /* Added border for separation */
+    border-bottom: 3px solid #e6a5c0; /* Added border for separation */
+}
+
+/* Recent Work Section */
+.recent-work {
+    padding: 60px 5%;
+    background-color: #fdfaf6;
+    border-top: 3px solid #ddd; /* Added border for separation */
+    border-bottom: 3px solid #ddd; /* Added border for separation */
+}
+
+.recent-work-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.tagline-recent {
+    font-family: 'Dancing Script', cursive;
+    color: #f7b5cd;
+    font-size: 1.3em;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #f7b5cd;
+    border-radius: 15px;
+    transform: rotate(-5deg);
+    margin-bottom: 10px;
+}
+
+.recent-work-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    color: #000;
+    margin: 0;
+}
+
+.highlight-text-work {
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    color: #000; /* Black for 'Work' in this case, as per image */
+}
+
+/* Simple placeholder for gallery layout - to be refined */
+.recent-work-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: center; /* Align items for varied heights */
+}
+
+.recent-work-text-left,
+.recent-work-text-right {
+    padding: 20px;
+}
+
+.recent-work-text-left p,
+.recent-work-text-right p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.recent-work-image-top img,
+.recent-work-image-bottom img {
+    border: 8px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+/* More Recent Work Section (Mais Destaques Criativos) */
+.more-recent-work-section {
+    padding: 60px 5%;
+    background-color: #fff; /* Alternando a cor de fundo */
+    border-top: 3px solid #ddd;
+    border-bottom: 3px solid #ddd;
+}
+
+.more-recent-work-section .recent-work-title h2 { /* Garante que o h2 herde o estilo mas podemos ajustar se necessário */
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em; /* Igual ao .recent-work-title h2 */
+    color: #000;
+    margin: 0;
+}
+
+.more-recent-work-section .tagline-recent { /* Garante que a tagline herde o estilo */
+    font-family: 'Dancing Script', cursive;
+    color: #f7b5cd;
+    font-size: 1.3em;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #f7b5cd;
+    border-radius: 15px;
+    transform: rotate(-5deg);
+    margin-bottom: 10px;
+}
+
+.more-recent-work-section .highlight-text-work { /* Garante que o highlight herde o estilo */
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    color: #000;
+}
+
+.more-work-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria um grid responsivo */
+    gap: 30px;
+    margin-top: 40px; /* Espaço após o título da seção */
+}
+
+.project-card {
+    background-color: #fdfaf6; /* Cor de fundo dos cards, similar ao .pricing-plan mas invertido com a seção */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden; /* Para conter a imagem arredondada se necessário */
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px; /* Altura fixa para as imagens dos cards */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    display: block;
+}
+
+.project-card-content {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em; /* Tamanho similar ao .pricing-plan-name */
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.project-card-content p {
+    font-family: 'Times New Roman', Times, serif; /* Usando a fonte base do body */
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Permite que o parágrafo cresça */
+}
+
+.project-card-content .btn {
+    background-color: #f7b5cd; /* Cor rosa padrão do botão */
+    color: #fff;
+    padding: 10px 20px; /* Padding padrão do .btn */
+    border-radius: 25px; /* Raio padrão do .btn */
+    font-size: 0.9em;
+    font-weight: bold;
+    display: inline-block; /* Para centralizar se necessário ou para manter o tamanho */
+    margin-top: auto; /* Empurra o botão para baixo se o card tiver altura flexível */
+}
+
+.project-card-content .btn:hover {
+    background-color: #f498b9; /* Cor hover padrão */
+}
+
+/* Ajustes responsivos para a nova seção de galeria */
+@media (max-width: 768px) {
+    .more-recent-work-section .recent-work-title h2 {
+        font-size: 2.5em; /* Ajuste para telas menores */
+    }
+    .more-work-gallery {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+     .project-card img {
+        height: 200px; /* Altura ligeiramente menor para telas menores */
+    }
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px 5%;
+    background-color: #f0e9e1; /* Slightly darker beige for footer */
+    border-top: 3px solid #d0c8be; /* Increased thickness, slightly darker color for footer border */
+}
+
+.footer-tag {
+    font-size: 0.9em;
+    color: #777;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #000;
+    margin: 0;
+}
+
+/* Services Pricing Section */
+.services-pricing {
+    padding: 60px 5%;
+    background-color: #fdfaf6;
+    border-top: 3px solid #ddd;
+    border-bottom: 3px solid #ddd;
+}
+
+.services-pricing-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-pricing-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.services-pricing-title p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.services-pricing-title span {
+    font-family: 'Dancing Script', cursive;
+    color: #f7b5cd;
+    font-size: 1.05em;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #f7b5cd;
+    border-radius: 15px;
+}
+.service-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.service-category-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-category-btn.active {
+    color: #000;
+    border-bottom: 2px solid #f7b5cd;
+    font-weight: bold;
+}
+
+.pricing-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.pricing-plan {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.pricing-plan:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-plan-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.pricing-plan-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.pricing-plan-price {
+    font-size: 2.2em;
+    color: #f7b5cd;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pricing-plan-period {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.pricing-plan-features {
+    margin-bottom: 30px;
+}
+
+.pricing-plan-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing-plan-features li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+}
+
+.pricing-plan-features li:before {
+    content: "✔";
+    color: #f7b5cd;
+    position: absolute;
+    left: 0;
+}
+
+.pricing-plan-cta {
+    text-align: center;
+}
+
+.pricing-plan-cta .btn {
+    width: 100%;
+    max-width: 200px;
+}
+
+.service-description {
+    margin-bottom: 40px;
+}
+
+.service-description h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.service-description p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 1.15em;
+}
+.service-description span {
+    font-family: 'Dancing Script', cursive;
+    color: #f7b5cd;
+    font-size: 1.05em;
+    display: inline-block;
+    padding: 5px 10px;
+}
+.service-description-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    
+}
+
+.service-description-benefit {
+    background-color: rgba(247, 181, 205, 0.1);
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: #555;
+    font-size: 0.9em;
+}
+.service-description-benefits .service-description-benefit {
+    color: #000;
+}
+#description-contact{
+    color: #000;
+    font-weight: 300;
+}
+.contact-info {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.contact-info p {
+    color: #555;
+    margin-bottom: 10px;
+
+}
+
+.contact-info a {
+    color: #f7b5cd;
+    font-weight: bold;
+    
+}
+.contact-info a:hover{
+    text-decoration: underline;
+    color: #520521;
+}
+@media (max-width: 768px) {
+    .services-pricing-title h2 {
+        font-size: 2.2em;
+    }
+    
+    .pricing-plans {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    nav ul {
+        display: none; /* Simple hide for now, implement burger menu later if needed */
+    }
+    .nav-logo {
+        margin: 0 auto; /* Center logo if menu is hidden */
+    }
+    .hero, .business-goals, .services-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image-container, .business-goals-image, .services-image-container {
+        margin-bottom: 30px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-text-container, .business-goals-text, .services-list {
+        flex-basis: 100%;
+    }
+    .business-goals-text::before {
+        display: none; /* Hide glow on smaller screens or adjust */
+    }
+    .featured-on-banner {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 1.1em;
+    }
+    .recent-work-gallery {
+        grid-template-columns: 1fr; /* Stack gallery items */
+    }
+    .recent-work-text-left,
+    .recent-work-text-right {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2.2em;
+    }
+    .hero-text-container h2, .business-goals-text h3, .recent-work-title h2 {
+        font-size: 2.5em;
+    }
+    .service-item h4 {
+        font-size: 1.5em;
+    }
+    .btn, .btn-service {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header, .hero, .business-goals, .services-section, .recent-work, footer {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .site-title {
+        font-size: 1.8em;
+    }
+    .hero-text-container h2, .business-goals-text h3, .recent-work-title h2 {
+        font-size: 2em;
+    }
+    .tagline, .tagline-recent {
+        font-size: 1.2em;
+    }
+    .scrolling-text span {
+        font-size: 1em;
+        margin-right: 20px;
+    }
+}
+
