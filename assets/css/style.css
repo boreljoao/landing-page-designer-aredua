@@ -1,5 +1,6 @@
 /* Global Styles */
 body {
+    font-size: 1.15rem; /* ou 18px */
     font-family: 'Times New Roman', Times, serif; /* Placeholder, will need to find closer matches or use web fonts */
     margin: 0;
     padding: 0;
@@ -166,7 +167,7 @@ nav ul li {
 }
 
 nav ul li a {
-    font-size: 0.95em;
+    font-size: 1.2rem;
     color: #555;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -228,7 +229,7 @@ main {
 }
 
 .hero-text-container p {
-    font-size: 1.2em;
+    font-size: 1.5em;
     line-height: 1.6;
     color: #555;
     margin-bottom: 30px;
@@ -319,7 +320,7 @@ main {
 }
 
 .business-goals-text p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     line-height: 1.6;
     color: #555;
     margin-bottom: 25px;
@@ -340,7 +341,7 @@ main {
 }
 
 .business-goals-image {
-    flex-basis: 45%;
+    flex-basis: 40%;
 }
 
 /* Services Section */
@@ -382,7 +383,7 @@ main {
 }
 
 .service-item p {
-    font-size: 1.05em;
+    font-size: 1.25em;
     line-height: 1.6;
     color: #555;
     margin-bottom: 20px;
@@ -471,7 +472,7 @@ main {
 
 .recent-work-text-left p,
 .recent-work-text-right p {
-    font-size: 0.95em;
+    font-size: 1.25rem;
     line-height: 1.6;
     color: #555;
     margin-bottom: 20px;
@@ -604,7 +605,7 @@ footer {
 }
 
 .footer-tag {
-    font-size: 0.9em;
+    font-size: 0.7em;
     color: #777;
     display: block;
     margin-bottom: 10px;
