@@ -1,75 +1,104 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // --- Início da Lógica do Banner de Rolagem ---
     const scrollingText = document.querySelector(".scrolling-text");
     if (scrollingText) {
-        // Duplicate content to ensure the CSS animation is seamless
-        // The CSS animation moves the element by -50% of its own width,
-        // so the content needs to be doubled.
+        // Duplica o conteúdo para criar um efeito de rolagem infinito e contínuo
         scrollingText.innerHTML += scrollingText.innerHTML;
     }
-    const categoryBtns = document.querySelectorAll(".service-category-btn");
-    const serviceDescriptions = document.querySelectorAll(".service-description");
+    // --- Fim da Lógica do Banner de Rolagem ---
 
-    categoryBtns.forEach(btn => {
-        btn.addEventListener("click", function() {
-            // Remove active class from all buttons
-            categoryBtns.forEach(b => b.classList.remove("active"));
-            
-            // Add active class to clicked button
-            this.classList.add("active");
-            
-            // Hide all service descriptions
-            serviceDescriptions.forEach(desc => {
-                desc.style.display = "none";
-            });
-            
-            // Show the selected service description
-            const category = this.getAttribute("data-category");
-            document.getElementById(category).style.display = "block";
-        });
-    });
-    
-    // Initialize with Social Media visible
-    document.getElementById("social-media").style.display = "block";
+
+    // --- Início da Lógica do Menu Mobile ---
     const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
     const mobileMenu = document.querySelector(".mobile-menu");
     const closeBtn = document.querySelector(".close-btn");
     
-    mobileMenuBtn.addEventListener("click", function() {
-        mobileMenu.classList.add("active");
-    });
+    if (mobileMenuBtn && mobileMenu && closeBtn) {
+        mobileMenuBtn.addEventListener("click", function() {
+            mobileMenu.classList.add("active");
+        });
     
-    closeBtn.addEventListener("click", function() {
-        mobileMenu.classList.remove("active");
-    });
-    
-    // Fechar o menu quando um link é clicado
-    const mobileLinks = mobileMenu.querySelectorAll("a");
-    mobileLinks.forEach(link => {
-        link.addEventListener("click", function() {
+        closeBtn.addEventListener("click", function() {
             mobileMenu.classList.remove("active");
         });
-    });
     
-    // Scrolling text duplication (seu código existente)
-   
-    
-  
-});
+        // Fecha o menu ao clicar em um link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                mobileMenu.classList.remove("active");
+            });
+        });
+    }
+    // --- Fim da Lógica do Menu Mobile ---
 
- // link a mailto
-document.addEventListener("DOMContentLoaded", function () {
+
+    // --- Início da Lógica do Link de E-mail ---
     const email = "borelduda@gmail.com";
     const emailLink = document.getElementById("emailLink");
 
-    function isMobile() {
-      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    if (emailLink) {
+        function isMobile() {
+          // Testa o userAgent para verificar se é um dispositivo móvel comum
+          return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+        }
+
+        if (isMobile()) {
+          // Em dispositivos móveis, usa o protocolo mailto: para abrir o app de e-mail padrão
+          emailLink.href = `mailto:${email}`;
+        } else {
+          // Em desktops, abre o Gmail em uma nova aba com o e-mail do destinatário pré-preenchido
+          emailLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+          emailLink.target = "_blank";
+          emailLink.rel = "noopener noreferrer";
+        }
+    }
+    // --- Fim da Lógica do Link de E-mail ---
+
+
+    // --- Início da Lógica das Abas de Serviços ---
+    const categoryBtns = document.querySelectorAll(".service-category-btn");
+    const serviceDescriptions = document.querySelectorAll(".service-description");
+    const socialMediaPlans = document.querySelector(".pricing-plans.social-media-plans");
+
+    // Define o estado inicial na carga da página: Social Media fica ativo.
+    document.getElementById("social-media").style.display = "block";
+    if (socialMediaPlans) {
+        socialMediaPlans.style.display = 'grid'; // Garante que os planos de social media estão visíveis
     }
 
-    if (isMobile()) {
-      emailLink.href = `mailto:${email}`;
-    } else {
-      emailLink.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
-      emailLink.target = "_blank";
-      emailLink.rel = "noopener noreferrer";
-    }
-  });
+    categoryBtns.forEach(btn => {
+        btn.addEventListener("click", function() {
+            // Remove a classe 'active' de todos os botões e a adiciona ao clicado
+            categoryBtns.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const category = this.getAttribute("data-category");
+
+            // Esconde todas as seções de descrição de serviço
+            serviceDescriptions.forEach(desc => {
+                desc.style.display = "none";
+            });
+
+            // Mostra apenas a seção de descrição de serviço correspondente ao botão clicado
+            const activeDescription = document.getElementById(category);
+            if (activeDescription) {
+                activeDescription.style.display = "block";
+            }
+
+            // Lógica para exibir os planos de preços:
+            // Mostra os planos principais de Social Media SOMENTE se a aba "Social Media" estiver ativa.
+            // Para todas as outras abas (Design, Papelaria Criativa, Consultoria), os planos principais são escondidos.
+            if (category === 'social-media') {
+                if (socialMediaPlans) {
+                    socialMediaPlans.style.display = 'grid';
+                }
+            } else {
+                if (socialMediaPlans) {
+                    socialMediaPlans.style.display = 'none';
+                }
+            }
+        });
+    });
+    // --- Fim da Lógica das Abas de Serviços ---
+});

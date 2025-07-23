@@ -23,7 +23,7 @@
             
         </div>
         <nav>
-            <div class="nav-logo">Aredua</div>
+            <div class="nav-logo"><img src="/assets/media/images/logo.png" alt="Logo Aredua" style="max-width:250px; height:auto; display:block;"></div>
             <button class="mobile-menu-btn">☰</button>
             <ul class="desktop-menu">
                 <li><a href="#home">Início</a></li>
@@ -34,7 +34,6 @@
             </ul>
         </nav>
         
-        <!-- Menu Mobile -->
         <div class="mobile-menu">
             <button class="close-btn">×</button>
             <ul>
@@ -50,7 +49,6 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-image-container">
-                <!-- Imagem da mulher de rosa -->
                 <img src="/assets/media/images/hero - Copia.jpg" alt="Mulher elegante vestindo conjunto rosa em ambiente de estúdio">
             </div>
             <div class="hero-text-container">
@@ -89,14 +87,12 @@
                 <a href="#services-list" class="link-help">Veja Como Podemos Ajudar &rarr;</a>
             </div>
             <div class="business-goals-image">
-                <!-- Imagem da mulher com câmera -->
                 <img src="/assets/media/images/back-aredua - Copia.jpg" alt="Fotógrafa profissional com câmera em ambiente externo">
             </div>
         </section>
 
         <section id="services-list" class="services-section">
             <div class="services-image-container">
-                <!-- Imagem das duas mulheres -->
                 <img src="/assets/media/images/aredua-front - Copia.jpg" alt="Duas mulheres profissionais em ternos rosa discutindo negócios">
             </div>
             <div class="services-list">
@@ -125,69 +121,92 @@
             <span>CRESCIMENTO CRIATIVO</span>
         </section>
 
-        <section id="work" class="recent-work">
+        <section id="projetos" class="recent-work">
             <div class="recent-work-title">
-                <span class="tagline-recent">Veja Tudo!</span>
-                <h2>Projetos <span class="highlight-text-work">Recentes</span></h2>
+                <span class="tagline-recent">Nosso Portfólio</span>
+                <h2>Projetos <span class="highlight-text-work">Incríveis</span></h2>
+                <p style="font-size: 1.2em; color: #555; max-width: 700px; margin: 20px auto 0 auto; font-family: 'Times New Roman', Times, serif;">
+                    Explore alguns dos trabalhos que realizamos com paixão e estratégia, criando marcas que se destacam e conectam.
+                </p>
             </div>
-            <div class="recent-work-gallery">
-                <div class="recent-work-text-left">
-                     <p>Mergulhe em alguns dos nossos trabalhos mais recentes e veja como a combinação de design inteligente e estratégia de marketing pode transformar a presença de uma marca.</p>
+        
+            <div class="portfolio-gallery">
+                <!-- Primeira linha - imagem full width -->
+                <div class="portfolio-item full-width">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&h=600&fit=crop" alt="Projeto de Identidade Visual">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Identidade Visual</h3>
+                            <p>Design Gráfico</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="recent-work-image-top">
-                    <!-- Imagem mulher de rosa em pé -->
-                    <img src="/assets/media/images/sansung.jpg" alt="Modelo feminina de pé com look rosa completo">
+        
+                <!-- Segunda linha - imagem full width -->
+                <div class="portfolio-item full-width">
+                    <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&h=600&fit=crop" alt="Projeto de Social Media">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Social Media</h3>
+                            <p>Gestão de Redes Sociais</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="recent-work-image-bottom">
-                     <!-- Imagem mulher deitada -->
-                    <img src="/assets/media/images/aredua-front - Copia.jpg" alt="Modelo feminina deitada em pose elegante">
+        
+                <!-- Terceira linha - duas imagens half width -->
+                <div class="portfolio-item half-width">
+                    <img src="https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?w=600&h=600&fit=crop" alt="Projeto de Papelaria Criativa">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Papelaria Criativa</h3>
+                            <p>Design de Materiais</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="recent-work-text-right">
-                    <p>Cada projeto é uma jornada única, cocriada com nossos clientes para alcançar resultados que impressionam e inspiram. Qual será a sua história de sucesso?</p>
-                    <a href="#" class="btn">Mais Projetos &rarr;</a>
+        
+                <div class="portfolio-item half-width">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop" alt="Projeto de Consultoria">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Consultoria</h3>
+                            <p>Estratégia de Marca</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Quarta linha - três imagens third width -->
+                <div class="portfolio-item third-width">
+                    <img src="https://images.unsplash.com/photo-1611162616805-6790999015ce?w=400&h=400&fit=crop" alt="Projeto de Design Gráfico">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Design Gráfico</h3>
+                            <p>Posts para Instagram</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="portfolio-item third-width">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=400&h=400&fit=crop" alt="Projeto de Branding">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Branding</h3>
+                            <p>Identidade Visual</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="portfolio-item third-width">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff98c8726514?w=400&h=400&fit=crop" alt="Projeto de Conteúdo">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Conteúdo</h3>
+                            <p>Criação de Posts</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!--<section id="more-creative-work" class="more-recent-work-section">
-            <div class="recent-work-title"> <span class="tagline-recent">Explore Mais</span> <h2>Outros <span class="highlight-text-work">Destaques Criativos</span></h2>
-                <p style="font-size: 1.1em; color: #555; max-width: 700px; margin: 20px auto 0 auto; font-family: 'Times New Roman', Times, serif;">
-                    Uma amostra adicional da nossa paixão por transformar ideias em realidade visual e estratégica, criando marcas que se conectam e inspiram.
-                </p>
-            </div>
-
-            <div class="more-work-gallery">
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=400&auto=format&fit=crop" alt="Exemplo de Design de Marca para Cliente X">
-                    <div class="project-card-content">
-                        <h4>Branding Completo para Café Boutique</h4>
-                        <p>Desenvolvimento de identidade visual, embalagens e estratégia de social media para um novo café charmoso na cidade.</p>
-                        <a href="#contact" class="btn">Ver Detalhes &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?q=80&w=400&auto=format&fit=crop" alt="Exemplo de Campanha de Marketing Digital">
-                    <div class="project-card-content">
-                        <h4>Campanha de Lançamento Digital</h4>
-                        <p>Criação de conteúdo visual e copywriting para o lançamento online de uma linha de produtos sustentáveis, resultando em alto engajamento.</p>
-                        <a href="#contact" class="btn">Ver Detalhes &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1611162616805-6790999015ce?q=80&w=400&auto=format&fit=crop" alt="Exemplo de Gestão de Social Media">
-                    <div class="project-card-content">
-                        <h4>Gestão de Social Media para Artista</h4>
-                        <p>Estratégia de conteúdo e gerenciamento de perfil para artista local, aumentando sua visibilidade e base de seguidores qualificados.</p>
-                        <a href="#contact" class="btn">Ver Detalhes &rarr;</a>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="#contact" class="btn">Solicitar Portfólio Completo &rarr;</a>
-            </div>
-        </section> -->
+        
         <section id="services" class="services-pricing">
             <div class="services-pricing-title">
                 <h2>Nossos Serviços</h2>
@@ -197,11 +216,10 @@
             <div class="service-categories">
                 <button class="service-category-btn active" data-category="social-media">Social Media</button>
                 <button class="service-category-btn" data-category="design">Design Gráfico</button>
-                <button class="service-category-btn" data-category="copywriting">Copywriting</button>
+                <button class="service-category-btn" data-category="copywriting">Papelaria Criativa</button>
                 <button class="service-category-btn" data-category="consultoria">Consultoria</button>
             </div>
         
-            <!-- Social Media Section -->
             <div class="service-description" id="social-media">
                 <h3>O que faz um <span>Social Media?</span></h3>
                 <p>O social media é o profissional responsável por planejar, criar, agendar e analisar conteúdos para redes sociais de forma estratégica. Na prática, é cuidar para que sua presença digital seja forte, alinhada com seus objetivos e fale diretamente com o seu público.</p>
@@ -215,8 +233,52 @@
                     <span class="service-description-benefit">✔ Crescimento estruturado</span>
                 </div>
             </div>
-        
-            <div class="pricing-plans">
+
+            <div class="service-description" id="copywriting" style="display: none;">
+                <h3>O que é <span>Papelaria Criativa?</span></h3>
+                <p>A papelaria criativa é a arte de transformar materiais de papel em peças únicas e personalizadas que representam a identidade da sua marca. Criamos itens que encantam, comunicam e valorizam sua empresa, evento ou uso pessoal.</p>
+                <div class="pricing-plans">
+                     <div class="pricing-plan">
+                        <div class="pricing-plan-header">
+                            <h3 class="pricing-plan-name">Artes Digitais para Papelaria</h3>
+                            <div class="pricing-plan-price">R$90</div>
+                            <div class="pricing-plan-period">cada arte*</div>
+                        </div>
+                        <div class="pricing-plan-features">
+                            <ul>
+                                <li>Cartão de visita</li>
+                                <li>Postal de agradecimento</li>
+                                <li>Link Bio</li>
+                                <li>Adesivos</li>
+                                <li>Tags</li>
+                                <li>Etiquetas</li>
+                                <li>Papel timbrado</li>
+                                <li>Panfleto</li>
+                                <li>Bloco de recibo</li>
+                                <li>Bloco receituário</li>
+                                <li>Marca página</li>
+                                <li>Convite</li>
+                                <li>Folder</li>
+                            </ul>
+                        </div>
+                         <div class="pricing-plan-cta">
+                            <a href="#" class="btn">Contratar</a>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.9em; text-align: center; margin-top: 20px;">*Não realizamos a impressão das artes, apenas disponibilizamos elas em formato digital PNG, PDF ou editável CANVA.</p>
+            </div>
+
+            <div class="service-description" id="consultoria" style="display: none;">
+                <h3>Consultoria e<span>Análise de Perfil</span></h3>
+                <p>É uma análise estratégica do seu Instagram. Avaliamos pontos como bio, identidade visual, conteúdo, destaques e posicionamento, e entregamos sugestões práticas para melhorar o desempenho e a imagem da sua marca nas redes. Ideal pra quem quer alinhar estética com estratégia e crescer com intenção.</p>
+                <div class="contact-info" style="border-top: none; padding-top: 10px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); padding: 20px; border-radius: 10px; background-color: var(--color-cinza);">
+                    <p style="font-size: 1.8em; font-weight: bold; color: var(--color-rosa-escuro); margin: 0 0 10px 0;">Valor: R$150</p>
+                    <a href="#" style="color: #fff;" class="btn">Quero Esta Consultoria</a>
+                </div>
+            </div>
+
+            <div class="pricing-plans social-media-plans">
                 <div class="pricing-plan">
                     <div class="pricing-plan-header">
                         <h3 class="pricing-plan-name">Plano Básico</h3>
@@ -226,11 +288,11 @@
                     <div class="pricing-plan-features">
                         <ul>
                             <li>Criação e produção de conteúdos</li>
-                            <li>2 posts por semana (feed)</li>
+                            <li>3 posts por semana (feed ou story)</li>
                             <li>Calendário de postagem</li>
                             <li>Interação com público</li>
                             <li>Gerenciamento de 1 rede (Instagram)</li>
-                            <li>Relatórios mensais (opcional)</li>
+                            <li>Relatórios mensais</li>
                             <li>Gerenciamento de anúncios incluso</li>
                         </ul>
                     </div>
@@ -248,12 +310,11 @@
                     <div class="pricing-plan-features">
                         <ul>
                             <li>Criação e produção de conteúdos</li>
-                            <li>2 posts por semana (feed)</li>
-                            <li>2 stories por semana</li>
+                            <li>3 posts por semana (feed ou story)</li>
                             <li>Calendário de postagem</li>
                             <li>Interação com público</li>
                             <li>Gerenciamento de até 2 redes</li>
-                            <li>Relatórios mensais (opcional)</li>
+                            <li>Relatórios mensais</li>
                             <li>Gerenciamento de anúncios incluso</li>
                         </ul>
                     </div>
@@ -263,7 +324,6 @@
                 </div>
             </div>
         
-            <!-- Design Gráfico Section -->
             <div class="service-description" id="design" style="display: none;">
                 <h3>O que faz um <span>Designer Gráfico?</span></h3>
                 <p>O designer gráfico é o profissional que transforma ideias em imagens com propósito. Criamos identidades visuais, peças para redes sociais, materiais de apresentação e comunicação visual que fortalecem a imagem da sua marca.</p>
@@ -271,7 +331,7 @@
                 <div class="pricing-plans">
                     <div class="pricing-plan">
                         <div class="pricing-plan-header">
-                            <h3 class="pricing-plan-name">Combo Padrão</h3>
+                            <h3 class="pricing-plan-name">Identidade visual completa</h3>
                             <div class="pricing-plan-price">R$250</div>
                             <div class="pricing-plan-period">único</div>
                         </div>
@@ -290,7 +350,7 @@
         
                     <div class="pricing-plan">
                         <div class="pricing-plan-header">
-                            <h3 class="pricing-plan-name">Combo Básico</h3>
+                            <h3 class="pricing-plan-name">arte individual para redes sociais</h3>
                             <div class="pricing-plan-price">R$40</div>
                             <div class="pricing-plan-period">cada</div>
                         </div>
@@ -348,46 +408,6 @@
                 </div>
             </div>
         
-            <!-- Copywriting Section -->
-            <div class="service-description" id="copywriting" style="display: none;">
-                <h3>O que é <span>Copywriting?</span></h3>
-                <p>É a escrita estratégica que transforma seguidores em clientes. Criamos textos pensados para atrair atenção, gerar conexão e incentivar ações — seja em posts, legendas, sites ou materiais de divulgação. Cada palavra é escolhida para comunicar com intenção e resultado.</p>
-                
-                <div class="service-description-benefits">
-                    <span class="service-description-benefit">✔ Textos persuasivos</span>
-                    <span class="service-description-benefit">✔ Maior engajamento</span>
-                    <span class="service-description-benefit">✔ Comunicação clara</span>
-                    <span class="service-description-benefit">✔ Voz da marca consistente</span>
-                </div>
-            </div>
-        
-            <!-- Consultoria Section -->
-            <div class="service-description" id="consultoria" style="display: none;">
-                <h3>Consultoria e<span>Análise de Perfil</span></h3>
-                <p>É uma análise estratégica do seu Instagram. Avaliamos pontos como bio, identidade visual, conteúdo, destaques e posicionamento, e entregamos sugestões práticas para melhorar o desempenho e a imagem da sua marca nas redes. Ideal pra quem quer alinhar estética com estratégia e crescer com intenção.</p>
-                
-                <div class="pricing-plans">
-                    <div class="pricing-plan">
-                        <div class="pricing-plan-header">
-                            <h3 class="pricing-plan-name">Raio-X do Seu Perfil</h3>
-                            <div class="pricing-plan-price">R$150</div>
-                            <div class="pricing-plan-period">único</div>
-                        </div>
-                        <div class="pricing-plan-features">
-                            <ul>
-                                <li>Consultoria e auxílio no aperfeiçoamento</li>
-                                <li>Otimização de perfis nas redes sociais</li>
-                                <li>Alinhamento com identidade visual</li>
-                                <li>Recomendações estratégicas</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-plan-cta">
-                            <a href="#" class="btn">Quero Esta Consultoria</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
             <div id="contact" class="contact-info">
                 <h3>Entre em contato</h3>
                 <p id="description-contact">Pronta para dar o próximo passo e transformar sua marca? Fale conosco!</p>
@@ -401,8 +421,7 @@
         <footer>
             <span class="footer-tag">CONHEÇA QUEM FAZ</span>
             <h2>Desenvolvedor</h2>
-            <!-- Conteúdo adicional do rodapé pode ser adicionado aqui -->
-    <p class="designed-by">Feito por: <a href="https://boreljoao.com.br" rel="noopener noreferrer">Joao Pedro Borel</a></p>
+            <p class="designed-by">Feito por: <a href="https://boreljoao.com.br" rel="noopener noreferrer">Joao Pedro Borel</a></p>
         </footer>
     </main>
     <script src="./assets/js/script.js"></script>
