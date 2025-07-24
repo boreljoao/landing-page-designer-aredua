@@ -102,3 +102,60 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     // --- Fim da Lógica das Abas de Serviços ---
 });
+
+// --- Lightbox para ver imagem completa do portfólio ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Cria o modal/lightbox se não existir
+    let modal = document.getElementById('portfolio-image-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'portfolio-image-modal';
+        modal.style.display = 'none';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        modal.style.background = 'rgba(0,0,0,0.85)';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        modal.style.zIndex = '9999';
+        modal.style.flexDirection = 'column';
+        modal.style.cursor = 'zoom-out';
+        modal.innerHTML = `
+            <span id="close-portfolio-modal" style="position:absolute;top:30px;right:40px;font-size:2.5em;color:#fff;cursor:pointer;z-index:10001">&times;</span>
+            <img id="portfolio-modal-img" src="" alt="Imagem do portfólio" style="max-width:90vw;max-height:80vh;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);background:#fff;" />
+        `;
+        modal.style.display = 'none';
+        modal.style.display = 'flex';
+        modal.style.display = 'none';
+        document.body.appendChild(modal);
+    }
+    const imgEl = modal.querySelector('#portfolio-modal-img');
+    const closeBtn = modal.querySelector('#close-portfolio-modal');
+
+    // Abrir modal ao clicar no botão
+    document.querySelectorAll('.view-full-image').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const imgUrl = btn.getAttribute('data-img');
+            imgEl.src = imgUrl;
+            modal.style.display = 'flex';
+        });
+    });
+
+    // Fechar modal ao clicar no botão de fechar
+    closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        modal.style.display = 'none';
+        imgEl.src = '';
+    });
+
+    // Fechar modal ao clicar fora da imagem
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            imgEl.src = '';
+        }
+    });
+});
