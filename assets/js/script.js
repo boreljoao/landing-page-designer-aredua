@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // --- Otimização de carregamento da imagem hero ---
+    const heroImage = document.querySelector('.hero-image-container img');
+    if (heroImage) {
+        // Força o carregamento prioritário da imagem hero
+        heroImage.setAttribute('fetchpriority', 'high');
+        
+        // Adiciona listener para quando a imagem carregar
+        heroImage.addEventListener('load', function() {
+            this.style.opacity = '1';
+            this.style.transform = 'translateZ(0) scale(1)';
+        });
+        
+        // Se a imagem já estiver carregada
+        if (heroImage.complete) {
+            heroImage.style.opacity = '1';
+            heroImage.style.transform = 'translateZ(0) scale(1)';
+        }
+    }
+    
     // --- Início da Lógica do Banner de Rolagem ---
     const scrollingText = document.querySelector(".scrolling-text");
     if (scrollingText) {

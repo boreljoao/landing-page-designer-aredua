@@ -210,6 +210,19 @@ main {
     flex-basis: 40%;
     border: 10px solid var(--color-bege); /* White border around image */
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    will-change: transform; /* Otimização para performance */
+    transform: translateZ(0); /* Força aceleração de hardware */
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    will-change: transform; /* Otimização para performance */
+    transform: translateZ(0) scale(0.95); /* Força aceleração de hardware */
+    backface-visibility: hidden; /* Melhora performance */
+    opacity: 0.8; /* Estado inicial */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transição suave */
 }
 
 .hero-text-container {
