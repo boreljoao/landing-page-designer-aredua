@@ -6,18 +6,18 @@
     // Adiciona classe loading ao body
     body.classList.add('loading');
     
-    // Tempo mínimo de exibição da tela de carregamento (2 segundos)
-    const minLoadingTime = 2000;
-    const startTime = Date.now();
-    
-    // Função para verificar se as imagens principais foram carregadas
-    function checkMainImagesLoaded() {
-        const heroImage = document.querySelector('.hero-image-container img');
-        const logoImage = document.querySelector('.nav-logo img');
+    // Função para verificar se todas as imagens da página foram carregadas
+    function checkAllImagesLoaded() {
+        const images = document.querySelectorAll('img');
         
         return new Promise((resolve) => {
+            if (images.length === 0) {
+                resolve();
+                return;
+            }
+            
             let loadedCount = 0;
-            const totalImages = 2;
+            const totalImages = images.length;
             
             function imageLoaded() {
                 loadedCount++;
@@ -26,51 +26,41 @@
                 }
             }
             
-            // Verifica se a imagem do hero já foi carregada
-            if (heroImage && heroImage.complete) {
-                imageLoaded();
-            } else if (heroImage) {
-                heroImage.addEventListener('load', imageLoaded);
-                heroImage.addEventListener('error', imageLoaded); // Continua mesmo se der erro
-            } else {
-                imageLoaded();
-            }
-            
-            // Verifica se a logo já foi carregada
-            if (logoImage && logoImage.complete) {
-                imageLoaded();
-            } else if (logoImage) {
-                logoImage.addEventListener('load', imageLoaded);
-                logoImage.addEventListener('error', imageLoaded); // Continua mesmo se der erro
-            } else {
-                imageLoaded();
-            }
+            // Verifica cada imagem
+            images.forEach(img => {
+                if (img.complete) {
+                    imageLoaded();
+                } else {
+                    img.addEventListener('load', imageLoaded);
+                    img.addEventListener('error', imageLoaded); // Continua mesmo se der erro
+                }
+            });
         });
     }
     
     // Função para esconder a tela de carregamento
     function hideLoadingScreen() {
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+        loadingScreen.classList.add('hidden');
+        body.classList.remove('loading');
         
+        // Remove a tela de carregamento do DOM após a transição
         setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-            body.classList.remove('loading');
-            
-            // Remove a tela de carregamento do DOM após a transição
-            setTimeout(() => {
-                if (loadingScreen && loadingScreen.parentNode) {
-                    loadingScreen.parentNode.removeChild(loadingScreen);
-                }
-            }, 500);
-        }, remainingTime);
+            if (loadingScreen && loadingScreen.parentNode) {
+                loadingScreen.parentNode.removeChild(loadingScreen);
+            }
+        }, 500);
     }
     
-    // Aguarda o carregamento das imagens principais e então esconde a tela
-    checkMainImagesLoaded().then(hideLoadingScreen);
+    // Aguarda o carregamento completo da página
+    window.addEventListener('load', function() {
+        // Aguarda um pouco mais para garantir que tudo foi processado
+        setTimeout(() => {
+            hideLoadingScreen();
+        }, 100);
+    });
     
-    // Fallback: esconde a tela após 5 segundos mesmo se as imagens não carregarem
-    setTimeout(hideLoadingScreen, 5000);
+    // Fallback: esconde a tela após 8 segundos mesmo se algo der errado
+    setTimeout(hideLoadingScreen, 8000);
 })();
 
 document.addEventListener("DOMContentLoaded", function() {
