@@ -16,11 +16,17 @@
     <meta name="twitter:description" content="Studio La Terre oferece soluções criativas de design e marketing digital para impulsionar seu negócio.">
     <meta name="twitter:image" content="/assets/media/images/hero - Copia.jpg">
     <link rel="stylesheet" href="/assets/css/style.css">
-    
-    <!-- Preload da imagem hero para carregamento prioritário -->
-    <link rel="preload" as="image" href="/assets/media/images/hero - Copia.jpg" fetchpriority="high">
 </head>
 <body>
+    <!-- Tela de Carregamento -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <img src="/assets/media/images/logo.png" alt="Logo Aredua" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Carregando...</p>
+        </div>
+    </div>
+
     <header>
         <div class="logo-container">
             
@@ -52,7 +58,7 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-image-container">
-                <img src="/assets/media/images/hero - Copia.jpg" alt="Mulher elegante vestindo conjunto rosa em ambiente de estúdio" loading="eager">
+                <img src="/assets/media/images/hero - Copia.jpg" alt="Mulher elegante vestindo conjunto rosa em ambiente de estúdio">
             </div>
             <div class="hero-text-container">
                 <span class="tagline">Oiee!</span>

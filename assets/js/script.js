@@ -1,23 +1,79 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // --- Otimização de carregamento da imagem hero ---
-    const heroImage = document.querySelector('.hero-image-container img');
-    if (heroImage) {
-        // Força o carregamento prioritário da imagem hero
-        heroImage.setAttribute('fetchpriority', 'high');
+// --- Lógica da Tela de Carregamento ---
+(function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const body = document.body;
+    
+    // Adiciona classe loading ao body
+    body.classList.add('loading');
+    
+    // Tempo mínimo de exibição da tela de carregamento (2 segundos)
+    const minLoadingTime = 2000;
+    const startTime = Date.now();
+    
+    // Função para verificar se as imagens principais foram carregadas
+    function checkMainImagesLoaded() {
+        const heroImage = document.querySelector('.hero-image-container img');
+        const logoImage = document.querySelector('.nav-logo img');
         
-        // Adiciona listener para quando a imagem carregar
-        heroImage.addEventListener('load', function() {
-            this.style.opacity = '1';
-            this.style.transform = 'translateZ(0) scale(1)';
+        return new Promise((resolve) => {
+            let loadedCount = 0;
+            const totalImages = 2;
+            
+            function imageLoaded() {
+                loadedCount++;
+                if (loadedCount >= totalImages) {
+                    resolve();
+                }
+            }
+            
+            // Verifica se a imagem do hero já foi carregada
+            if (heroImage && heroImage.complete) {
+                imageLoaded();
+            } else if (heroImage) {
+                heroImage.addEventListener('load', imageLoaded);
+                heroImage.addEventListener('error', imageLoaded); // Continua mesmo se der erro
+            } else {
+                imageLoaded();
+            }
+            
+            // Verifica se a logo já foi carregada
+            if (logoImage && logoImage.complete) {
+                imageLoaded();
+            } else if (logoImage) {
+                logoImage.addEventListener('load', imageLoaded);
+                logoImage.addEventListener('error', imageLoaded); // Continua mesmo se der erro
+            } else {
+                imageLoaded();
+            }
         });
-        
-        // Se a imagem já estiver carregada
-        if (heroImage.complete) {
-            heroImage.style.opacity = '1';
-            heroImage.style.transform = 'translateZ(0) scale(1)';
-        }
     }
     
+    // Função para esconder a tela de carregamento
+    function hideLoadingScreen() {
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+        
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            body.classList.remove('loading');
+            
+            // Remove a tela de carregamento do DOM após a transição
+            setTimeout(() => {
+                if (loadingScreen && loadingScreen.parentNode) {
+                    loadingScreen.parentNode.removeChild(loadingScreen);
+                }
+            }, 500);
+        }, remainingTime);
+    }
+    
+    // Aguarda o carregamento das imagens principais e então esconde a tela
+    checkMainImagesLoaded().then(hideLoadingScreen);
+    
+    // Fallback: esconde a tela após 5 segundos mesmo se as imagens não carregarem
+    setTimeout(hideLoadingScreen, 5000);
+})();
+
+document.addEventListener("DOMContentLoaded", function() {
     // --- Início da Lógica do Banner de Rolagem ---
     const scrollingText = document.querySelector(".scrolling-text");
     if (scrollingText) {
