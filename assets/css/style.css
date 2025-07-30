@@ -1193,12 +1193,33 @@ footer h3 {
 
 #image-modal img {
     max-width: 90vw;
-    max-height: 80vh;
+    max-height: 70vh;
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
     background: #fff;
     cursor: auto;
     object-fit: contain;
+    margin-bottom: 20px;
+}
+
+#modal-info {
+    text-align: center;
+    color: white;
+    max-width: 90vw;
+    margin-top: 20px;
+}
+
+#modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--color-rosa-claro);
+}
+
+#modal-description {
+    font-size: 1.2em;
+    color: #ccc;
+    margin: 0;
 }
 
 #close-modal {
@@ -1227,7 +1248,15 @@ footer h3 {
 @media (max-width: 768px) {
     #image-modal img {
         max-width: 95vw;
-        max-height: 70vh;
+        max-height: 60vh;
+    }
+    
+    #modal-title {
+        font-size: 1.6em;
+    }
+    
+    #modal-description {
+        font-size: 1em;
     }
     
     #close-modal {
@@ -1240,7 +1269,15 @@ footer h3 {
 @media (max-width: 480px) {
     #image-modal img {
         max-width: 98vw;
-        max-height: 60vh;
+        max-height: 50vh;
+    }
+    
+    #modal-title {
+        font-size: 1.4em;
+    }
+    
+    #modal-description {
+        font-size: 0.9em;
     }
     
     #close-modal {
@@ -1316,6 +1353,43 @@ footer h3 {
     .scroll-indicator {
         bottom: 30px;
         font-size: 0.8em;
+    }
+}
+
+/* Ajustes para mobile e tablet - remover hover e ajustar para clique */
+@media (max-width: 1024px) {
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 0; /* Remove o hover em dispositivos touch */
+    }
+    
+    .portfolio-item:hover img {
+        transform: none; /* Remove a transformação de hover */
+    }
+    
+    .portfolio-overlay {
+        opacity: 0;
+        pointer-events: none; /* Desabilita interações de hover */
+    }
+    
+    /* Mostrar overlay apenas quando ativo via JavaScript */
+    .portfolio-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* Ajuste específico para telas muito pequenas */
+@media (max-width: 480px) {
+    .portfolio-item {
+        cursor: pointer; /* Indica que é clicável */
+    }
+    
+    .portfolio-info h3 {
+        font-size: 1.3em; /* Tamanho menor para mobile */
+    }
+    
+    .portfolio-info p {
+        font-size: 0.9em; /* Tamanho menor para mobile */
     }
 }
 

@@ -113,29 +113,74 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.innerHTML = `
             <span id="close-modal">&times;</span>
             <img id="modal-img" src="" alt="Imagem completa" />
+            <div id="modal-info">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+            </div>
         `;
         document.body.appendChild(modal);
     }
     
     const imgEl = modal.querySelector('#modal-img');
     const closeBtn = modal.querySelector('#close-modal');
+    const modalTitle = modal.querySelector('#modal-title');
+    const modalDescription = modal.querySelector('#modal-description');
 
-    // Abrir modal ao clicar no botão
+    // Função para detectar se é dispositivo móvel/tablet
+    function isMobileOrTablet() {
+        return window.innerWidth <= 1024 || /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    }
+
+    // Abrir modal ao clicar no botão (desktop)
     document.querySelectorAll('.view-full-image').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            const imgUrl = this.href; // Usa o href em vez de data-img
+            const imgUrl = this.href;
             imgEl.src = imgUrl;
+            
+            // Buscar título e descrição do item do portfólio
+            const portfolioItem = this.closest('.portfolio-item');
+            const title = portfolioItem.querySelector('h3').textContent;
+            const description = portfolioItem.querySelector('p').textContent;
+            
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Previne scroll da página
+            document.body.style.overflow = 'hidden';
         });
     });
+
+    // Funcionalidade para mobile/tablet - clicar no item inteiro
+    if (isMobileOrTablet()) {
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Não abrir se clicar no botão "Ver imagem completa"
+                if (e.target.classList.contains('view-full-image')) {
+                    return;
+                }
+                
+                const imgUrl = this.querySelector('img').src;
+                const title = this.querySelector('h3').textContent;
+                const description = this.querySelector('p').textContent;
+                
+                imgEl.src = imgUrl;
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
+                
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+    }
 
     // Fechar modal ao clicar no botão de fechar
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
         imgEl.src = '';
-        document.body.style.overflow = 'auto'; // Restaura scroll da página
+        modalTitle.textContent = '';
+        modalDescription.textContent = '';
+        document.body.style.overflow = 'auto';
     });
 
     // Fechar modal ao clicar fora da imagem
@@ -143,7 +188,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === modal) {
             modal.style.display = 'none';
             imgEl.src = '';
-            document.body.style.overflow = 'auto'; // Restaura scroll da página
+            modalTitle.textContent = '';
+            modalDescription.textContent = '';
+            document.body.style.overflow = 'auto';
         }
     });
 
@@ -152,7 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape' && modal.style.display === 'flex') {
             modal.style.display = 'none';
             imgEl.src = '';
-            document.body.style.overflow = 'auto'; // Restaura scroll da página
+            modalTitle.textContent = '';
+            modalDescription.textContent = '';
+            document.body.style.overflow = 'auto';
         }
     });
 });
