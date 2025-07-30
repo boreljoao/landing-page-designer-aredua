@@ -1565,5 +1565,16 @@ footer h3 {
     }
 }
 
+/* Garantir que todos os highlight-text usem cursive em mobile */
+@media (max-width: 768px) {
+    .hero-text-container .highlight-text,
+    .highlight-text-goals,
+    .highlight-text-work,
+    .more-recent-work-section .highlight-text-work {
+        font-family: cursive !important;
+        font-style: italic;
+    }
+}
+
 
 
