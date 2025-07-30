@@ -333,7 +333,7 @@ main {
 }
 
 .hero-text-container .highlight-text {
-    font-family: cursive;
+    font-family: 'Lilita One', cursive;
     color: var(--color-rosa-escuro);
     font-style: italic;
 }
@@ -424,7 +424,7 @@ main {
 }
 
 .highlight-text-goals {
-    font-family: cursive;
+    font-family: 'Lilita One', cursive;
     color: var(--color-rosa-escuro);
     font-style: italic;
 }
@@ -559,7 +559,7 @@ main {
 }
 
 .highlight-text-work {
-    font-family: cursive;
+    font-family: 'Lilita One', cursive;
     font-style: italic;
     color: var(--color-marrom-escuro); /* Black for 'Work' in this case, as per image */
 }
@@ -618,7 +618,7 @@ main {
 }
 
 .more-recent-work-section .highlight-text-work { /* Garante que o highlight herde o estilo */
-    font-family: cursive;
+    font-family: 'Lilita One', cursive;
     font-style: italic;
     color: var(--color-marrom-escuro);
 }
@@ -1565,13 +1565,13 @@ footer h3 {
     }
 }
 
-/* Garantir que todos os highlight-text usem cursive em mobile */
+/* Garantir que todos os highlight-text usem Lilita One em mobile */
 @media (max-width: 768px) {
     .hero-text-container .highlight-text,
     .highlight-text-goals,
     .highlight-text-work,
     .more-recent-work-section .highlight-text-work {
-        font-family: cursive !important;
+        font-family: 'Lilita One', cursive !important;
         font-style: italic;
     }
 }

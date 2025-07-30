@@ -97,6 +97,119 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     // --- Fim da Lógica do Menu Mobile ---
 
+    // --- Início da Lógica de Detecção de Cor e Alteração da Logo ---
+    function detectBodyColorAndChangeLogo() {
+        const body = document.body;
+        const navLogo = document.querySelector('nav .nav-logo img');
+        const loadingLogo = document.querySelector('.loading-logo');
+        
+        console.log('Nav logo encontrada:', navLogo); // Debug
+        console.log('Loading logo encontrada:', loadingLogo); // Debug
+        
+        if (!navLogo && !loadingLogo) {
+            console.log('Nenhuma logo encontrada'); // Debug
+            return;
+        }
+        
+        // Obtém a cor de fundo computada do body
+        const bodyBackgroundColor = window.getComputedStyle(body).backgroundColor;
+        console.log('Cor de fundo do body:', bodyBackgroundColor); // Debug
+        
+        // Converte a cor RGB para valores numéricos
+        const rgbMatch = bodyBackgroundColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*[\d.]+)?\)/);
+        
+        if (rgbMatch) {
+            const r = parseInt(rgbMatch[1]);
+            const g = parseInt(rgbMatch[2]);
+            const b = parseInt(rgbMatch[3]);
+            
+            // Calcula o brilho da cor (fórmula padrão)
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            console.log('Brilho calculado:', brightness); // Debug
+            
+            // Define os caminhos das logos
+            const logoMarrom = '/assets/media/images/logo.png';
+            const logoBranca = '/assets/media/images/logo_white.png';
+            
+            // Se o fundo for escuro (brilho < 128), usa logo branca
+            // Se o fundo for claro (brilho >= 128), usa logo marrom
+            const logoPath = brightness < 128 ? logoBranca : logoMarrom;
+            console.log('Logo escolhida:', logoPath); // Debug
+            
+            // Altera a logo na navegação
+            if (navLogo) {
+                navLogo.src = logoPath;
+                console.log('Logo da navegação alterada para:', logoPath); // Debug
+            }
+            
+            // Altera a logo na tela de carregamento
+            if (loadingLogo) {
+                loadingLogo.src = logoPath;
+                console.log('Logo do loader alterada para:', logoPath); // Debug
+            }
+        } else {
+            console.log('Não foi possível extrair valores RGB da cor:', bodyBackgroundColor); // Debug
+        }
+    }
+    
+    // Função para tornar a logo clicável
+    function makeLogoClickable() {
+        const navLogoContainer = document.querySelector('nav .nav-logo');
+        const loadingLogoContainer = document.querySelector('.loading-content');
+        
+        if (navLogoContainer) {
+            // Remove a imagem da div e adiciona como link
+            const img = navLogoContainer.querySelector('img');
+            if (img) {
+                const link = document.createElement('a');
+                link.href = '/index.html';
+                link.style.textDecoration = 'none';
+                link.style.display = 'block';
+                
+                // Move a imagem para dentro do link
+                navLogoContainer.appendChild(link);
+                link.appendChild(img);
+            }
+        }
+        
+        if (loadingLogoContainer) {
+            const loadingImg = loadingLogoContainer.querySelector('.loading-logo');
+            if (loadingImg) {
+                const link = document.createElement('a');
+                link.href = '/index.html';
+                link.style.textDecoration = 'none';
+                link.style.display = 'block';
+                
+                // Move a imagem para dentro do link
+                loadingLogoContainer.appendChild(link);
+                link.appendChild(loadingImg);
+            }
+        }
+    }
+    
+    // Executa a detecção quando a página carrega
+    detectBodyColorAndChangeLogo();
+    makeLogoClickable();
+    
+    // Executa a detecção quando a janela é redimensionada (caso haja mudanças de layout)
+    window.addEventListener('resize', detectBodyColorAndChangeLogo);
+    
+    // Executa a detecção quando há mudanças no CSS (caso haja mudanças dinâmicas de cor)
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                detectBodyColorAndChangeLogo();
+            }
+        });
+    });
+    
+    // Observa mudanças no body
+    observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['style', 'class']
+    });
+    // --- Fim da Lógica de Detecção de Cor e Alteração da Logo ---
+
 
     // --- Início da Lógica do Link de E-mail ---
     const email = "borelduda@gmail.com";
